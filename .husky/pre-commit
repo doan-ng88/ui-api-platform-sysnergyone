@@ -1,0 +1,5 @@
+npx lint-staged --concurrent false
+
+npm run test.unit
+
+npm run type-check

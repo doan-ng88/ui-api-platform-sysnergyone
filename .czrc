@@ -1,0 +1,17 @@
+{
+  "scopes": [
+    "dashboard",
+    "logs",
+    "member-management",
+    "campaign-management",
+    "campaign-create",
+    "campaign-edit",
+    "content-management",
+    "content-create",
+    "content-edit",
+    "influencer-management",
+    "influencer-create",
+    "influencer-edit",
+    "sign-in"
+  ]
+}

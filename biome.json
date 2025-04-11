@@ -1,0 +1,51 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+
+	"linter": {
+		"enabled": true,
+
+		"rules": {
+			"all": true,
+			"correctness": { "useImportExtensions": "off" , "noUndeclaredDependencies": "off", "useHookAtTopLevel": "off"},
+			"performance": {
+				"noBarrelFile": "off",
+				"noReExportAll": "off"
+			},
+			"style": {
+				"noDefaultExport": "off",
+				"useNamingConvention": "off",
+				"noNamespaceImport": "off"
+			}
+		}
+	},
+	"formatter": {
+		"enabled": true
+	},
+	"files": {
+		"ignore": ["node_modules", "*.vue", "*.config.*", "*.*js*"]
+	},
+	"overrides": [
+		{
+			"include": ["*.d.ts"],
+			"linter": {
+				"rules": {
+					"recommended": true,
+					"all": false,
+					"correctness": {
+						"noUndeclaredVariables": "off"
+					},
+					"style": {
+						"noDefaultExport": "off",
+						"noNamespace": "off"
+					}
+				}
+			}
+		},
+		{
+			"include": ["*.nocheck.ts"],
+			"linter": {
+				"enabled": false
+			}
+		}
+	]
+}

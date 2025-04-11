@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+
+@config '../../tailwind.config.js';
+
+@plugin "@tailwindcss/typography";
+
+@plugin "daisyui";
+
+
+@variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: oklch(70.83% 0.1207 177.39);
+  --color-secondary: oklch(72.7725% .149783 33.200363);
+  --color-accent: #C148AC;
+  --color-neutral: #021431;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  --color-primary: oklch(65.83% 0.1207 177.39);
+  --color-secondary: oklch(72.7725% .149783 33.200363);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+
+@layer utilities {
+  @font-face {
+    font-family: 'Good Times';
+    src: url('../assets/good-times.otf');
+  }
+
+  .btn {
+    & span::first-letter {
+      text-transform: uppercase;
+    }
+  }
+  .form-control {
+    @apply flex flex-col *:w-full;
+    & .label{
+      @apply pt-2 pb-1 px-1 text-sm font-semibold
+    }
+  }
+  .capitalize-first {
+    &::first-letter {
+      @apply uppercase;
+    }
+  }
+}
+
+@theme {
+  /* These values are added in addition to the defaults */
+  --font-company: "Good Times", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --breakpoint-3xl: 1920px;
+}
+
+@media (min-width: 1280px) {
+  html:has(.xl\:drawer-open.xl\:drawer-open) {
+    overflow-y: unset !important;
+  }
+}
+
+html{
+  @apply bg-base-300
+}

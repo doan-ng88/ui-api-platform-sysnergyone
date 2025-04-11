@@ -1,0 +1,1 @@
+export { useUserDetailsStore } from "./model";

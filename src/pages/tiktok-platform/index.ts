@@ -1,0 +1,1 @@
+export { TiktokPlatformPage } from "./ui";

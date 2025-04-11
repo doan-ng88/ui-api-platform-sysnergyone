@@ -1,0 +1,1 @@
+export { LazadaPlatformPage } from "./ui";
